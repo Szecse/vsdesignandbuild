@@ -23,11 +23,12 @@ h2 {
     text-align: center;
 }
 
-/* Boxed konténer a fix szélességű szekciókhoz */
+
+/* Globális konténer a szellősebb elrendezéshez */
 .container {
-    max-width: 980px;
+    max-width: 1200px; /* 980px-ről 1200px-re növelve a lélegzetelállítóbb térérzetért */
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 120px 20px; /* A függőleges paddingot 80px-ről 120px-re növeltük */
     text-align: center;
 }
 
@@ -193,18 +194,19 @@ h2 {
 }
 
 .team-split-container {
-    max-width: 980px;      /* Szigorúan tartja a boxed szélességet */
+    max-width: 1200px; /* Ezt is 1200px-re állítjuk a harmónia kedvéért */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px; /* Kicsit nagyobb oldalsó margó */
     display: flex;
     align-items: center;
-    gap: 50px;             /* Távolság a kép és a szöveg között */
+    gap: 80px; /* A kép és a szöveg közötti távolságot 50px-ről 80px-re növeltük */
 }
 
 /* Kép oldal stílusai */
+/* Opcionális: A kép egy picit nagyobb lehet a szélesebb térben */
 .team-image-side {
     flex: 1;
-    max-width: 400px;
+    max-width: 480px; /* 400px-ről 480px-re növelve */
     position: relative;
 }
 
@@ -377,7 +379,7 @@ h2 {
 
 .principles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Szigorúan 3 egyenlő oszlop */
     gap: 20px;
     margin-top: 40px;
 }
@@ -407,12 +409,12 @@ h2 {
 .pink-title { color: #004f6d; }
 
 .gallery-grid-container {
-    max-width: 980px;         
-    margin: 0 auto;           
-    padding: 0 20px 60px 20px;
+    max-width: 1200px; /* Ezt is 1200px-re emeltük */
+    margin: 0 auto;          
+    padding: 0 20px 100px 20px; /* Növeltük az alsó távolságot (60px -> 100px) */
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 8px;                 
+    gap: 15px; /* A képek közötti távolságot duplájára (8px -> 15px) növeltük, hogy jobban érvényesüljenek */
 }
 
 .gallery-item-wrapper {
@@ -483,8 +485,8 @@ h2 {
 
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 hasábos elrendezés */
-    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; /* A korábbi 25px-es gap-et 40px-re emeltük */
     text-align: left;
 }
 
@@ -804,4 +806,7 @@ h2 {
         gap: 15px;
     }
     
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mobilon 2 oszlopos lesz */
+    }
 } /* <--- EZ A ZÁRÓ ZÁRÓJEL A LEGFONTOSABB! Ez zárja le a mobil szabályokat. */
