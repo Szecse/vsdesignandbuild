@@ -1,0 +1,17 @@
+const hamburger = document.getElementById('hamburger-btn');
+const nav = document.getElementById('main-nav');
+const navLinks = document.querySelectorAll('.main-nav ul li a');
+
+// Gombnyomásra hozzáadjuk/elvesszük az 'active' class-t
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+});
+
+// Ha a felhasználó rákattint egy menüpontra, a menü automatikusan záródjon be
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+    });
+});

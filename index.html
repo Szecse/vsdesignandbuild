@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSPS Ltd | Building on Reputation</title>
+    <title>VS Design & Build | Building on Reputation</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,8 +11,10 @@
 </head>
 <body>
 
+    <!-- 1. HEADER & NAVIGÁCIÓ -->
     <header class="site-header">
         <div class="header-container">
+            <!-- Új SVG Logó -->
             <div class="logo">
                 <a href="#" style="text-decoration: none;">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 80" width="240" height="100%">
@@ -27,16 +29,18 @@
                 </a>
             </div>
 
+            <!-- Hamburger Gomb Mobilos Nézethez -->
             <button class="hamburger" id="hamburger-btn" aria-label="Menü megnyitása">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
 
+            <!-- Fő navigáció -->
             <nav class="main-nav" id="main-nav">
                 <ul>
-                    <li><a href="#about">About BSPS</a></li>
-                    <li><a href="#why-us">Why BSPS</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#why-us">Why Us</a></li>
                     <li><a href="#work">Our Work</a></li>
                     <li><a href="#team">Meet the Team</a></li>
                     <li><a href="#news">News</a></li>
@@ -46,6 +50,7 @@
         </div>
     </header>
 
+    <!-- 2. FIXED HERO VIDEO SECTION -->
     <div class="video-background">
         <video autoplay loop muted playsinline>
             <source src="herobackground.webm" type="video/webm">
@@ -54,6 +59,7 @@
         <div class="hero-overlay"></div>
     </div>
 
+    <!-- HERO TARTALOM (Szöveg és gombok a videó felett) -->
     <div class="hero-content">
         <h1>Building on Reputation</h1>
         <p>Expert main contractor services for commercial, heritage, and residential projects across London and the South East.</p>
@@ -63,14 +69,17 @@
         </div>
     </div>
 
+    <!-- TARTALMI SZEKCIÓK BURKOLÓJA (Parallax görgetéshez szükséges) -->
     <div class="content-wrapper">
 
+        <!-- 3. ABOUT SECTION -->
         <section id="about" class="section about-card-section">
             <div class="container">
-                <h2>About BSPS</h2>
-                <p class="about-lead">BSPS is a family-run main contractor with decades of industry experience. We deliver exceptional quality across 8 key sectors:</p>
+                <h2>About VS Design & Build</h2>
+                <p class="about-lead">VS Design & Build is a family-run main contractor with decades of industry experience. We deliver exceptional quality across 8 key sectors:</p>
                 
                 <div class="about-grid">
+                    <!-- 1. Commercial -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect><path d="M7 22V14h10v8"></path><path d="M12 2v12"></path><path d="M7 7h3"></path><path d="M14 7h3"></path></svg>
@@ -79,6 +88,7 @@
                         <p>Complete transformation and modernization of interior office spaces, structural refurbishments, and high-end fit-outs.</p>
                     </div>
                     
+                    <!-- 2. Education -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
@@ -87,6 +97,7 @@
                         <p>State-of-the-art updates for universities and schools, creating collaborative learning environments and cutting-edge facilities.</p>
                     </div>
                     
+                    <!-- 3. Retail -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
@@ -95,6 +106,7 @@
                         <p>High-street fit-outs and specialized commercial spaces designed to withstand heavy footfall while maintaining luxury design.</p>
                     </div>
                     
+                    <!-- 4. Residential -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -103,6 +115,7 @@
                         <p>Premium refurbishment, structural adjustments, and high-quality internal and external decorations for residential properties.</p>
                     </div>
                     
+                    <!-- 5. Hospitality & Leisure -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
@@ -111,6 +124,7 @@
                         <p>High-end restaurant, hotel, and boutique bar transformations, delivering stunning visitor experiences under tight deadlines.</p>
                     </div>
                     
+                    <!-- 6. Healthcare -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
@@ -119,6 +133,7 @@
                         <p>Specialized contractor services for medical buildings and clinics, ensuring safe operations and pristine finishes.</p>
                     </div>
                     
+                    <!-- 7. Industrial -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 21H2V3l7 4 7-4 6 4v14z"></path><path d="M14 17h4v4h-4z"></path></svg>
@@ -127,6 +142,7 @@
                         <p>Robust design, layout reconstruction, and maintenance solutions for industrial premises and warehouses.</p>
                     </div>
                     
+                    <!-- 8. Heritage -->
                     <div class="about-card">
                         <div class="about-card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#004f6d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12M12 21v-7M9 9h6"></path></svg>
@@ -138,10 +154,11 @@
             </div>
         </section>
 
+        <!-- 4. WHY US & KEY PRINCIPLES SECTION -->
         <section id="why-us" class="section navy-section">
             <div class="container">
-                <h2>Why BSPS?</h2>
-                <p>We know how much trust our clients place in BSPS when they hand us a project and a property, and we believe our structure and approach mean we can accomplish unique results. Find out more about our '6 Key Principles'.</p>
+                <h2>Why VS Design & Build?</h2>
+                <p>We know how much trust our clients place in VS Design & Build when they hand us a project and a property, and we believe our structure and approach mean we can accomplish unique results. Find out more about our '6 Key Principles'.</p>
                 
                 <div class="principles-grid">
                     <div class="principle-card"><h3>Excellent Service</h3></div>
@@ -154,6 +171,7 @@
             </div>
         </section>
 
+        <!-- 5. OUR WORK SECTION -->
         <section id="work" class="section white-section">
             <div class="container">
                 <h2 class="pink-title">Our Work</h2>
@@ -161,6 +179,7 @@
             </div>
             
             <div class="gallery-grid-container">
+                <!-- 1. Sor -->
                 <div class="gallery-item-wrapper">
                     <img src="https://static.wixstatic.com/media/277e36_b91fb7f55a7b40d0b27e65df085a57fb~mv2.jpg/v1/fill/w_390,h_390,q_90/277e36_b91fb7f55a7b40d0b27e65df085a57fb~mv2.jpg" alt="Heritage">
                     <div class="gallery-overlay"><span>Heritage</span></div>
@@ -177,6 +196,7 @@
                     <img src="https://static.wixstatic.com/media/277e36_58647fed5684476d82410bf20cd3232b~mv2.jpg/v1/fill/w_390,h_390,q_90/277e36_58647fed5684476d82410bf20cd3232b~mv2.jpg" alt="Commercial">
                     <div class="gallery-overlay"><span>Commercial</span></div>
                 </div>
+                <!-- 2. Sor -->
                 <div class="gallery-item-wrapper">
                     <img src="https://static.wixstatic.com/media/277e36_22e73f9dc39b4ee292ad812cd902d44f~mv2.jpg/v1/fill/w_390,h_390,q_90/277e36_22e73f9dc39b4ee292ad812cd902d44f~mv2.jpg" alt="Heritage">
                     <div class="gallery-overlay"><span>Heritage</span></div>
@@ -196,6 +216,7 @@
             </div>
         </section>
 
+        <!-- 6. MEET THE TEAM SECTION -->
         <section id="team" class="section team-section">
             <div class="team-split-container">
                 <div class="team-image-side">
@@ -211,6 +232,7 @@
             </div>
         </section>
 
+        <!-- 7. NEWS SECTION -->
         <section id="news" class="section news-section">
             <div class="container">
                 <h2>Latest News</h2>
@@ -247,7 +269,7 @@
                         </div>
                         <div class="news-card-content">
                             <span class="news-date">April 28, 2026</span>
-                            <h3>BSPS Renews Safety Certifications</h3>
+                            <h3>VS Design & Build Renews Safety Certifications</h3>
                             <p>We are proud to announce the successful renewal of our SafeContractor accreditations, highlighting our ongoing commitment to safe sites.</p>
                             <a href="#" class="news-more-link">Read More <span>→</span></a>
                         </div>
@@ -256,6 +278,7 @@
             </div>
         </section>
 
+        <!-- 8. GET IN TOUCH SECTION -->
         <section id="contact" class="section contact-section">
             <div class="container">
                 <h2>Get in Touch</h2>
@@ -273,23 +296,25 @@
             </div>
         </section>
 
+        <!-- 9. FOOTER -->
         <footer class="site-footer">
             <div class="container">
                 <nav class="footer-nav">
-                    <a href="#about">About BSPS</a> | 
-                    <a href="#why-us">Why BSPS</a> | 
+                    <a href="#about">About Us</a> | 
+                    <a href="#why-us">Why Us</a> | 
                     <a href="#work">Our Work</a> | 
                     <a href="#team">Meet the Team</a> | 
-                    <a href="#vacancies">Working at BSPS</a> | 
+                    <a href="#vacancies">Careers</a> | 
                     <a href="#news">News</a> | 
                     <a href="#contact">Get in Touch</a> | 
                     <a href="https://static.wixstatic.com/media/277e36_3aedafda966146e199cbadc1a7b20e5e.pdf" target="_blank">T&Cs</a>
                 </nav>
-                <p class="footer-credits">© BSPS Ltd. 2026 - <strong>Building on Reputation</strong> - <a href="tel:02088749971">020 8874 9971</a> - 27 Margaret St, London, W1W 8RY</p>
+                <p class="footer-credits">© VS Design & Build 2026 - <strong>Building on Reputation</strong> - <a href="tel:02088749971">020 8874 9971</a> - 27 Margaret St, London, W1W 8RY</p>
             </div>
         </footer>
     </div>
 
+    <!-- MOBIL MENÜ SCRIPT BEHÍVÁSA -->
     <script src="script.js"></script>
 </body>
 </html>

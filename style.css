@@ -55,7 +55,7 @@ h2 {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 20px;
+    gap: 40px !important; /* Brutálisan kinyitjuk a rést, hogy egyértelmű legyen a változás */
 }
 
 .main-nav a {
@@ -71,11 +71,14 @@ h2 {
 }
 
 .main-nav .btn-contact {
+    display: inline-block !important; /* KÖTELEZŐ: enélkül az <a> tag nem kezeli rendesen a vastagságot és a margót */
     background-color: #004f6d;
     color: #ffffff;
-    padding: 8px 16px;
+    padding: 12px 28px !important;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    margin-left: 25px;  /* Extra nagy távolság a News-tól */
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
 .main-nav .btn-contact:hover {
@@ -695,26 +698,83 @@ h2 {
 }
 
 /* ==========================================================================
-   6. MOBIL OPTIMALIZÁLÁS (Reszponzivitás)
+   6. MOBIL OPTIMALIZÁLÁS (Reszponzivitás - Max 768px)
    ========================================================================== */
 @media (max-width: 768px) {
+    
+    /* Fejléc elrendezés mobilon (Logó balra, Hamburger jobbra) */
     .header-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    /* Hamburger ikon megjelenítése */
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Oldalról becsúszó mobil menü */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        display: flex;
         flex-direction: column;
-        gap: 15px;
-    }
-    
-    .main-nav ul {
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        transition: right 0.4s ease-in-out;
+        z-index: 1000;
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        gap: 0 !important; /* Mobilon ne legyen hatalmas lyuk a menüpontok közt */
+    }
+
+    .main-nav li {
+        margin: 20px 0;
+    }
+
+    .main-nav a {
+        font-size: 18px;
     }
     
+    .main-nav .btn-contact {
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: 0 !important; /* Mobilon töröljük az asztali margót, hogy középen maradjon! */
+    }
+
+    /* Rácsok (Grid) átalakítása mobilos nézetre */
     .gallery-grid-container {
         grid-template-columns: repeat(2, 1fr); 
     }
     
     .news-grid {
-        grid-template-columns: 1fr; /* Mobilon egymás alá ugranak a cikkek */
+        grid-template-columns: 1fr; /* Blogposztok egymás alá ugranak */
     }
     
     .gallery-overlay span {
@@ -728,4 +788,20 @@ h2 {
     .content-wrapper {
         margin-top: 100vh;
     }
-}
+
+    /* Hero szekció szövegeinek mobil finomítása */
+    .hero-content h1 {
+        font-size: 40px;
+    }
+    
+    .hero-content p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+} /* <--- EZ A ZÁRÓ ZÁRÓJEL A LEGFONTOSABB! Ez zárja le a mobil szabályokat. */
