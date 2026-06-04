@@ -87,25 +87,20 @@ h2 {
    ========================================================================== */
 .video-background {
     position: fixed;
-    top: 65px; 
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 65px);
-    z-index: -1;
+    height: 100vh; /* Teljes képernyőt kitölti */
+    z-index: -1; /* Hátraküldjük a tartalom mögé */
     overflow: hidden;
     background-color: #20303c;
 }
 
 .video-background video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biztosítja, hogy a videó kitöltse a keretet torzulás nélkül */
+    display: block;
 }
 
 .hero-overlay {
@@ -114,15 +109,16 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(32, 48, 60, 0.2);
+    background: rgba(32, 48, 60, 0.3); /* Finom sötétítés, hogy elegánsabb legyen */
 }
 
 .content-wrapper {
     position: relative;
     z-index: 2;
-    margin-top: 100vh; 
+    margin-top: 100vh; /* Letolja a tartalmat pontosan 1 képernyőnyivel */
+    background-color: #ffffff; /* KÖTELEZŐ: eltakarja a videót görgetéskor! */
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1); /* Opcionális: Szép kis árnyékot ad a felgördülő tartalom tetejének */
 }
-
 /* ==========================================================================
    4. SZEKCIÓK EGYEDI STÍLUSAID
    ========================================================================== */
@@ -283,24 +279,88 @@ h2 {
 }
 
 /* Reszponzív nézet: Mobilon egymás alá ugranak */
+/* ==========================================================================
+   HAMBURGER GOMB (Alapértelmezetten rejtett)
+   ========================================================================== */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Hogy mindig a becsúszó menü FELETT maradjon */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #004f6d;
+    transition: all 0.3s ease-in-out;
+    border-radius: 3px;
+}
+
+/* ==========================================================================
+   MOBIL NÉZET (Max 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .team-split-container {
+    /* Megjelenítjük a gombot */
+    .hamburger {
+        display: block;
+    }
+
+    /* Amikor a gomb aktív (nyitva a menü), "X" formát vesz fel */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* A menü oldalról becsúszó (Off-Canvas) stílusa */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Alapból kint van a képernyő jobb szélén kívül */
+        width: 250px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        transition: right 0.4s ease-in-out; /* Sima csúszás animáció */
+        z-index: 1000;
+    }
+
+    /* Amikor kap egy active class-t a JS-től, becsúszik a képernyőre */
+    .main-nav.active {
+        right: 0;
+    }
+
+    /* Lista elemek újrarendezése középre */
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
         text-align: center;
-        gap: 30px;
+        padding: 0;
+    }
+
+    .main-nav li {
+        margin: 20px 0;
+    }
+
+    .main-nav a {
+        font-size: 18px;
     }
     
-    .team-text-side {
-        text-align: center;
-    }
-    
-    .team-text-side h2 {
-        text-align: center;
-    }
-    
-    .team-image-side {
-        margin: 0 auto;
-        max-width: 300px;
+    .main-nav .btn-contact {
+        display: inline-block;
+        margin-top: 10px;
     }
 }
 
@@ -555,6 +615,84 @@ h2 {
 }
 
 .footer-credits a { color: #ffffff; }
+
+/* ==========================================================================
+   HERO TARTALOM (Szöveg a videón)
+   ========================================================================== */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1; /* A videó felett, de a görgetett tartalom alatt van */
+    width: 100%;
+    max-width: 850px;
+    padding: 0 20px;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Sötét árnyék, hogy minden videón olvasható legyen */
+}
+
+.hero-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: #f0f0f0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Gombok stílusai */
+.hero-buttons a {
+    display: inline-block;
+    padding: 14px 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Elsődleges gomb (Türkiz) */
+.btn-primary {
+    background-color: #54b7c6;
+    color: #ffffff;
+    border: 2px solid #54b7c6;
+    box-shadow: 0 4px 15px rgba(84, 183, 198, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #54b7c6;
+    border-color: #ffffff;
+}
+
+/* Másodlagos gomb (Átlátszó, fehér kerettel) */
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #004f6d; /* Sötétkék lesz a szöveg, ha ráviszed az egeret */
+}
 
 /* ==========================================================================
    6. MOBIL OPTIMALIZÁLÁS (Reszponzivitás)
